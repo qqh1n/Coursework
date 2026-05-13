@@ -1,40 +1,69 @@
-# ========================
-# Артефакты сборки
-# ========================
-[Bb]in/
-[Oo]bj/
-*.publish/
+# Prerequisites
+*.d
 
-# ========================
-# Visual Studio & MSBuild
-# ========================
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.vcxproj.user
-*.opensdf
-*.sdf
-*.ipch
-*.VC.db
-*.VC.opendb
-.vs/
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
 
-# ========================
-# .NET & NuGet
-# ========================
-packages/
-*.nupkg
-*.snupkg
-*.nuget.props
-*.nuget.targets
-.nuget/
+# Precompiled Headers
+*.gch
+*.pch
 
-# ========================
-# Операционная система
-# ========================
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+*.so.*
+
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+Build/
+build-*/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# Temporary files
 *.tmp
 *.log
-*.DS_Store
-Thumbs.db
-desktop.ini
+*.bak
+*.swp
+
+# vcpkg
+vcpkg_installed/
+
+# debug information files
+*.dwo
+
+# test output & cache
+Testing/
+.cache/
