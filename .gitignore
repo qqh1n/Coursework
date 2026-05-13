@@ -1,0 +1,40 @@
+# ========================
+# Артефакты сборки
+# ========================
+[Bb]in/
+[Oo]bj/
+*.publish/
+
+# ========================
+# Visual Studio & MSBuild
+# ========================
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+*.opensdf
+*.sdf
+*.ipch
+*.VC.db
+*.VC.opendb
+.vs/
+
+# ========================
+# .NET & NuGet
+# ========================
+packages/
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+.nuget/
+
+# ========================
+# Операционная система
+# ========================
+*.tmp
+*.log
+*.DS_Store
+Thumbs.db
+desktop.ini
