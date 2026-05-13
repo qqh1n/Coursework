@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SharpComponent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bb598c9e9f4f1725d32ad77efa999abfa85c8a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("SharpComponent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SharpComponent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

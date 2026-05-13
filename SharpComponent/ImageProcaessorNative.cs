@@ -6,6 +6,6 @@ public static class ImageProcessorNative
 
     [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
     public static extern int ProcessImage(
-    string inputPath,
-    string outputPath);
+    [MarshalAs(UnmanagedType.LPWStr)] string inputPath,
+    [MarshalAs(UnmanagedType.LPWStr)] string outputPath);
 }

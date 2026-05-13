@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\Coursework\SharpComponent\bin\Debug\net8.0\SharpComponent.exe
+C:\Users\user\source\repos\Coursework\SharpComponent\bin\Debug\net8.0\SharpComponent.deps.json
+C:\Users\user\source\repos\Coursework\SharpComponent\bin\Debug\net8.0\SharpComponent.runtimeconfig.json
+C:\Users\user\source\repos\Coursework\SharpComponent\bin\Debug\net8.0\SharpComponent.dll
+C:\Users\user\source\repos\Coursework\SharpComponent\bin\Debug\net8.0\SharpComponent.pdb
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.AssemblyInfo.cs
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.sourcelink.json
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.dll
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\refint\SharpComponent.dll
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.pdb
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\SharpComponent.genruntimeconfig.cache
+C:\Users\user\source\repos\Coursework\SharpComponent\obj\Debug\net8.0\ref\SharpComponent.dll
