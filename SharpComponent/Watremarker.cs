@@ -32,6 +32,7 @@ class Watermarker
     static void Main(string[] args)
     {
         Watermarker watermarker = new Watermarker();
+        LoggerCs.Open("adapter.log");
         ImageProcessorNative.SetLogCallback(LoggerCs.Log);
 
         LoggerCs.Log("App started.");
@@ -80,5 +81,6 @@ class Watermarker
         }
 
         LoggerCs.Log("All threads finished. App finished.");
+        LoggerCs.Close();
     }
 }
