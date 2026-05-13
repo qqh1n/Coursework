@@ -7,4 +7,4 @@
 #define IMAGEPROCESSOR_API __declspec(dllimport)
 #endif
 
-extern "C" IMAGEPROCESSOR_API int ProcessImage(const wchar_t* inputPath, const wchar_t* outputPath);
+extern "C" IMAGEPROCESSOR_API int ProcessImage(void (*logCallback)(const char* msg), const wchar_t* inputPath, const wchar_t* outputPath);

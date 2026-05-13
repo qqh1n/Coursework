@@ -13,7 +13,7 @@ class Watermarker
 
         try
         {
-            int result = ImageProcessorNative.ProcessImage(inputPath, outputPath);
+            int result = ImageProcessorNative.ProcessImage(LoggerCs.Log, inputPath, outputPath);
             if (result >= 0)
             {
                 LoggerCs.Log($"Processed {fileName} -> {outputPath}.");
@@ -32,6 +32,7 @@ class Watermarker
     static void Main(string[] args)
     {
         Watermarker watermarker = new Watermarker();
+        ImageProcessorNative.SetLogCallback(LoggerCs.Log);
 
         LoggerCs.Log("App started.");
 

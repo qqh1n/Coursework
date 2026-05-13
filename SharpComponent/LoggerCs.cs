@@ -10,8 +10,8 @@ public static class LoggerCs
     {
         lock (lockObj)
         {
-            string line = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.ffffff} [CS] {msg}";
-            File.AppendAllText("adapter_cs.log", line + Environment.NewLine);
+            string line = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.ffffff} {msg}";
+            File.AppendAllText("adapter.log", line + Environment.NewLine);
         }
     }
 }

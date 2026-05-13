@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "pch.h"
 #include "ImageProcessorHeader.h"
-#include "LoggerCppHeader.h"
 
 #pragma comment(lib, "Gdiplus.lib")
 
@@ -28,20 +27,20 @@ int GetEncoderClsid(const WCHAR* format, CLSID* pClsid) {
     return -1;
 }
 
-extern "C" IMAGEPROCESSOR_API int ProcessImage(const wchar_t* inputPath, const wchar_t* outputPath) {
-    LoggerCpp::log("ProcessImage: Drawing start...");
+extern "C" IMAGEPROCESSOR_API int ProcessImage(void (*logCallback)(const char* msg), const wchar_t* inputPath, const wchar_t* outputPath) {
+    logCallback("ProcessImage: Drawing start...");
 
     int result = 0;
     {
         if (GetFileAttributesW(inputPath) == INVALID_FILE_ATTRIBUTES) {
-            LoggerCpp::log("ProcessImage: File not found!");
+            logCallback("ProcessImage: File not found!");
             result = -11;
             goto cleanup;
         }
 
         Bitmap* bitmap = new Bitmap(inputPath);
         if (!bitmap || bitmap->GetLastStatus() != Ok) {
-            LoggerCpp::log("ProcessImage: Failed to load bitmap!");
+            logCallback("ProcessImage: Failed to load bitmap!");
             delete bitmap;
             result = -2;
             goto cleanup;
@@ -49,7 +48,7 @@ extern "C" IMAGEPROCESSOR_API int ProcessImage(const wchar_t* inputPath, const w
 
         Graphics* graphics = Graphics::FromImage(bitmap);
         if (!graphics || graphics->GetLastStatus() != Ok) {
-            LoggerCpp::log("ProcessImage: Failed to create graphics!");
+            logCallback("ProcessImage: Failed to create graphics!");
             delete graphics;
             delete bitmap;
             result = -3;
@@ -74,7 +73,7 @@ extern "C" IMAGEPROCESSOR_API int ProcessImage(const wchar_t* inputPath, const w
 
         CLSID pngClsid;
         if (GetEncoderClsid(L"image/png", &pngClsid) == -1) {
-            LoggerCpp::log("ProcessImage: PNG encoder not found!");
+            logCallback("ProcessImage: PNG encoder not found!");
             delete graphics;
             delete bitmap;
             result = -4;
@@ -86,13 +85,13 @@ extern "C" IMAGEPROCESSOR_API int ProcessImage(const wchar_t* inputPath, const w
         delete bitmap;
 
         if (status != Ok) {
-            LoggerCpp::log("ProcessImage: Save failed!");
+            logCallback("ProcessImage: Save failed!");
             result = -5;
             goto cleanup;
         }
     }
 
 cleanup:
-    LoggerCpp::log(result == 0 ? "ProcessImage: Drawing success!" : "ProcessImage: Finished with error.");
+    logCallback(result == 0 ? "ProcessImage: Drawing success!" : "ProcessImage: Finished with error.");
     return result;
 }

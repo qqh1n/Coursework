@@ -21,8 +21,6 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ImageProcessorSource.cpp" />
-    <ClCompile Include="LoggerCppHeader.h" />
-    <ClCompile Include="LoggerCppSource.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
