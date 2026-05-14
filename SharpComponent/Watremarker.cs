@@ -4,45 +4,56 @@ using System.Threading;
 
 class Watermarker
 {
+    private LoggerCs logger;
+    public Watermarker(LoggerCs logger)
+    {
+        this.logger = logger;
+    }
+
+    public void log(string msg)
+    {
+        logger.log(msg);
+    }
+
     public void ProcessFileAsync(string inputPath, string outputDir)
     {
         string fileName = Path.GetFileName(inputPath);
         string outputPath = Path.Combine(outputDir, fileName);
 
-        LoggerCs.Log($"Starting thread for {fileName}.");
+        log($"Starting thread for {fileName}.");
 
         try
         {
-            int result = ImageProcessorNative.ProcessImage(LoggerCs.Log, inputPath, outputPath);
+            int result = ImageProcessorNative.ProcessImage(logger.log, inputPath, outputPath);
             if (result >= 0)
             {
-                LoggerCs.Log($"Processed {fileName} -> {outputPath}.");
+                log($"Processed {fileName} -> {outputPath}.");
             }
             else
             {
-                LoggerCs.Log($"Error processing {fileName} (C++ returned {result}).");
+                log($"Error processing {fileName} (C++ returned {result}).");
             }
         }
         catch (Exception ex)
         {
-            LoggerCs.Log($"Exception in thread for {fileName}: {ex.Message}");
+            log($"Exception in thread for {fileName}: {ex.Message}");
         }
     }
 
     static void Main(string[] args)
     {
-        Watermarker watermarker = new Watermarker();
-        LoggerCs.Open("adapter.log");
-        ImageProcessorNative.SetLogCallback(LoggerCs.Log);
+        LoggerCs logger = new LoggerCs("adapter.log", 10, 50);
+        Watermarker watermarker = new Watermarker(logger);
+        ImageProcessorNative.SetLogCallback(watermarker.logger.log);
 
-        LoggerCs.Log("App started.");
+        watermarker.log("App started.");
 
         string inputDir = @"C:\test_images\input";
         string outputDir = @"C:\test_images\output";
 
         if (!Directory.Exists(inputDir))
         {
-            LoggerCs.Log("Input directory does not exist.");
+            watermarker.log("Input directory does not exist.");
             return;
         }
 
@@ -59,11 +70,11 @@ class Watermarker
 
         if (files.Length == 0)
         {
-            LoggerCs.Log("No supported image files found in input directory.");
+            watermarker.log("No supported image files found in input directory.");
             return;
         }
 
-        LoggerCs.Log($"Found {files.Length} image files. Starting threads...");
+        watermarker.log($"Found {files.Length} image files. Starting threads...");
 
         Thread[] threads = new Thread[files.Length];
         for (int i = 0; i < files.Length; ++i)
@@ -80,7 +91,7 @@ class Watermarker
             t.Join();
         }
 
-        LoggerCs.Log("All threads finished. App finished.");
-        LoggerCs.Close();
+        watermarker.log("All threads finished. App finished.");
+        logger.Dispose();
     }
 }
