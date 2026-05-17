@@ -44,7 +44,6 @@ class Watermarker
     {
         LoggerCs logger = new LoggerCs("adapter.log", 10, 50);
         Watermarker watermarker = new Watermarker(logger);
-        ImageProcessorNative.SetLogCallback(watermarker.logger.log);
 
         watermarker.log("App started.");
 
